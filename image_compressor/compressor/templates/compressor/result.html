@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .container{
+            display:flex;
+            justify-content:space-around;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 align="center" class="mt-4">Image Compression Result</h1>
+    <div class="container mt-4">
+        <div class="mt-4">
+            <p class="lead fw-bold" align="center">Original Image:</p>
+            <img src="{{ image.original_image.url }}" alt="Original Image" style="max-width: 40vw;">
+        </div>
+        <div class="mt-4">
+            <p class="lead fw-bold" align="center">Compressed Image (Quality: {{ image.compression_quality }}):</p>
+            <img src="{{ image.compressed_image.url }}" alt="Compressed Image" style="max-width: 40vw;">
+        </div>
+    </div>
+
+    <div class="container mt-5 d-flex flex-column w-100 align-items-center mb-5">
+        <a href="{% url 'download_image' image.id %}" class="container-fluid d-flex justify-content-center text-decoration-none" download>
+            <button class="btn btn-success w-50 ">Download Compressed Image</button>
+        </a>
+        <br>
+        <a href="/" class="container-fluid d-flex justify-content-center"><button class="btn btn-primary w-50">Upload Another Image</button></a>
+    </div>
+
+</body>
+</html>
